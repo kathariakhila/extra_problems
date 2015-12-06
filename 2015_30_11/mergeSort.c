@@ -101,46 +101,95 @@ struct node * allocate(int *numbers, int len){
 	return head;
 }
 
-
 void merge(struct node* head1,struct node* head2,struct node** res){
 	
 	struct node* curr1 = head1;
 	struct node* curr2 = head2;
-	//struct node* temp = *res;
+	
+	struct node* curr = *res;
 	
 	while(curr1 != NULL && curr2 != NULL){
 		
 		if(curr1->data == curr2->data){
-			
-			add(res,curr1->data);
+		//	printf("\n%d",curr1->data);
+			if(*res== NULL)
+				curr = *res = curr1;
 				
 			
+			else{
+			
+				curr->next = curr1;	
+				curr = curr->next;	
+			}
 			curr1 = curr1->next;
 			curr2 = curr2->next;
+			//printf("\n%d",curr->data);
 		}
 		
 		else if(curr1->data < curr2->data){
-			add(res,curr1->data);
+		//	printf("\n%d",curr1->data);
+			if(*res == NULL)
+				curr = *res = curr1;
+			
+			else{
+				
+				curr->next = curr1;
+				curr = curr->next;	
+				//printf("\n%d",curr->data);
+			}
 			curr1 = curr1->next;
 		}
 		else{
-			add(res,curr2->data);
+		//	printf("\n%d",curr2->data);
+			if(*res == NULL)
+				curr = *res = curr2;
+			
+			else{
+			
+				curr->next = curr2;	
+				curr = curr->next;
+				//printf("\n%d",curr->data);
+			}
 			curr2 = curr2->next;
 		}
+		
+		//printf("\n%d",curr->data);
+		
 	}
 	
 	while(curr1 != NULL){
+	
+			if(*res == NULL)
+				curr = *res = curr1;
+				
 			
-			add(res,curr1->data);
+			else{
+			
+				curr->next = curr1;		
+				curr = curr->next;
+				//printf("\n%d",curr->data);
+			}
 			curr1 = curr1->next;	
 	}
 		
 	while(curr2 != NULL){
-		add(res,curr2->data);
+		
+		if(*res == NULL)
+				curr = *res = curr2;
+			
+		else{
+			
+			curr->next = curr2;
+			curr = curr->next;	
+		//	printf("\n%d",curr->data);
+		}
+						
 		curr2 = curr2->next;	
 		
 	}
 	
+	curr->next = NULL;
+	return;
 }
 
 void test(int n_tests){
