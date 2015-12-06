@@ -90,7 +90,7 @@ void merge(struct node* head1,struct node* head2,struct node** res){
 			}
 			curr1 = curr1->next;
 			curr2 = curr2->next;
-			printf("\n%d",curr->data);
+		//	printf("\n%d",curr->data);
 		}
 		
 		else if(curr1->data < curr2->data){
@@ -102,7 +102,7 @@ void merge(struct node* head1,struct node* head2,struct node** res){
 				
 				curr->next = curr1;
 				curr = curr->next;	
-				printf("\n%d",curr->data);
+		//		printf("\n%d",curr->data);
 			}
 			curr1 = curr1->next;
 		}
@@ -115,7 +115,7 @@ void merge(struct node* head1,struct node* head2,struct node** res){
 			
 				curr->next = curr2;	
 				curr = curr->next;
-				printf("\n%d",curr->data);
+		//		printf("\n%d",curr->data);
 			}
 			curr2 = curr2->next;
 		}
@@ -134,7 +134,7 @@ void merge(struct node* head1,struct node* head2,struct node** res){
 			
 				curr->next = curr1;		
 				curr = curr->next;
-				printf("\n%d",curr->data);
+		//		printf("\n%d",curr->data);
 			}
 			curr1 = curr1->next;	
 	}
@@ -148,7 +148,7 @@ void merge(struct node* head1,struct node* head2,struct node** res){
 			
 			curr->next = curr2;
 			curr = curr->next;	
-			printf("\n%d",curr->data);
+		//	printf("\n%d",curr->data);
 		}
 						
 		curr2 = curr2->next;	
@@ -165,7 +165,7 @@ int calculateValue(struct node* res,int r){
 	int i;
 	
 	for(i = 1;i < r && curr != NULL;i++){
-		printf("\n%d",curr->data);
+		//printf("\n%d",curr->data);
 		curr = curr->next;
 	}
 	return curr->data;
@@ -192,7 +192,7 @@ void test(int n_tests){
 		head2 = allocate(tests[k].n2);
 		
 		merge(head1,head2,&res);
-		printf("\nOutSide the merge");
+		//printf("\nOutSide the merge");
 		
 		value = calculateValue(res,tests[k].r);
 
